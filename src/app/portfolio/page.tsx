@@ -271,9 +271,9 @@ export default function PortfolioPage() {
 
             <p className="mt-2 text-zinc-300 italic">{contact.motto}</p>
 
-            <p className="mt-5 text-zinc-200 max-w-2xl leading-relaxed">
+            {/* <p className="mt-5 text-zinc-200 max-w-2xl leading-relaxed">
               {contact.blurb}
-            </p>
+            </p> */}
 
             <div className="mt-7 flex flex-wrap gap-3">
               <a
