@@ -14,18 +14,18 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Mujia Chen's Portfolio",
-  description: "Computer Graphics and Game Development",
+  description: "Computer Graphics & Game Development",
 };
 
 export default function RootLayout({
-  children
+  children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
       <body
-        className="bg-zinc-950 text-zinc-100"
+        className={`${geistSans.variable} ${geistMono.variable} bg-zinc-950 text-zinc-100 antialiased`}
       >
         {children}
       </body>
