@@ -11,6 +11,7 @@ import {
   Sparkles,
   ChevronDown,
   Palette,
+  ExternalLink,
 } from "lucide-react";
 import Link from "next/link";
 import { FancyLink, GlowCard, Section, Tag } from "../components/site-ui";
@@ -49,8 +50,10 @@ type Project = {
   role: string;
   dates: string;
   blurb?: string;
+  primaryLink?: { label: string; href: string };
   links?: { label: string; href: string }[];
   video?: string;
+  image?: string;
   points: string[];
   features?: string[];
   gradient: string;
@@ -97,6 +100,22 @@ const projects: Project[] = [
     pixel: true,
   },
   {
+    title: "She Respawns Here",
+    stack: ["Twine", "HTML", "Narrative Design"],
+    role: "Writer / Game Designer",
+    dates: "2026",
+    blurb:
+      "A standalone Twine narrative game, launched directly from this project card.",
+    primaryLink: { label: "Play Game", href: "/twine_game.html" },
+    image: "/twine_cover.png",
+    points: [
+      "Built and exported the full interactive story as a standalone HTML game.",
+      "Designed the narrative flow, branching choices, and presentation in Twine.",
+    ],
+    features: ["Branching Narrative"],
+    gradient: "from-rose-500/35 via-orange-500/20 to-fuchsia-500/25",
+  },
+  {
     title: "VR Bowling Learning Game",
     stack: ["Unity", "C#", "VR"],
     role: "Instruction Design Lead",
@@ -122,7 +141,7 @@ const projects: Project[] = [
 
 const skills = {
   languages: ["Python", "C++", "Swift", "C#", "JavaScript", "GLSL"],
-  tools: ["Unity", "Xcode", "Maya", "Substance Painter", "Figma"],
+  tools: ["Unity", "Xcode", "Maya", "Twine", "Figma"],
 };
 
 function ProjectCard({ p }: { p: Project }) {
@@ -188,7 +207,20 @@ function ProjectCard({ p }: { p: Project }) {
             </ul>
           </details>
 
-          {/* links */}
+          {p.primaryLink && (
+            <div className="mt-5">
+              <a
+                href={p.primaryLink.href}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-rose-400 via-pink-400 to-orange-300 px-5 py-3 text-sm font-semibold text-zinc-950 shadow-[0_12px_32px_rgba(251,113,133,0.28)] transition hover:scale-[1.02] hover:shadow-[0_16px_40px_rgba(251,113,133,0.34)] focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-200/80"
+              >
+                <ExternalLink size={16} />
+                {p.primaryLink.label}
+              </a>
+            </div>
+          )}
+
           {p.links && (
             <div className="mt-5 flex flex-wrap gap-3">
               {p.links.map((l) => (
@@ -198,17 +230,24 @@ function ProjectCard({ p }: { p: Project }) {
           )}
         </div>
 
-        {/* video */}
-        {p.video && (
+        {(p.video || p.image) && (
           <div className="lg:col-span-2">
             <div className="aspect-video rounded-2xl overflow-hidden border border-white/10 bg-black/40">
-              <iframe
-                src={p.video}
-                title={`${p.title} demo video`}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              />
+              {p.video ? (
+                <iframe
+                  src={p.video}
+                  title={`${p.title} demo video`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              ) : (
+                <img
+                  src={p.image}
+                  alt={`${p.title} cover art`}
+                  className="h-full w-full object-cover"
+                />
+              )}
             </div>
           </div>
         )}
