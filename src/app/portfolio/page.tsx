@@ -328,8 +328,8 @@ const analysisItems: AnalysisItem[] = [
     description:
       "Analyzes how IDOLiSH7 uses character writing, limited events, collection systems, and UI interactions to build emotional attachment and turn that attachment into long-term engagement and willingness to collect.",
     cta: "Read Analysis →",
-    pdfHref: "/analysis/IDOLiSH7%20Analysis.pdf",
-    thumbnailSrc: "/analysis/picture/idolish7.png",
+    pdfHref: "/analysis/IDOLiSH7%20analysis.pdf",
+    thumbnailSrc: "/analysis/picture/idolish7.PNG",
     thumbnailAlt: "IDOLiSH7 thumbnail",
   },
 ];
