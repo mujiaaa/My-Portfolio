@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 /*
-  A playful-but-readable palette.
-  (Mostly CSS + subtle motion; keeps things clean and scannable.)
+  Dark cyberpunk portfolio palette.
+  Near-black, deep indigo charcoal, and controlled neon accents.
 */
 :root {
-  --background: #09090b; /* zinc-950 */
-  --foreground: #f4f4f5; /* zinc-100 */
+  --background: #06060A;
+  --foreground: #F7F3F8;
 
   /* RGB tuples for rgba(var(--accent-*), <alpha>) usage */
-  --accent-a: 168 85 247; /* purple-500 */
-  --accent-b: 236 72 153; /* pink-500 */
-  --accent-c: 56 189 248; /* sky-400 */
+  --accent-a: 255 62 181;
+  --accent-b: 216 140 255;
+  --accent-c: 17 16 26;
 }
 
 @theme inline {
@@ -35,7 +35,7 @@ body {
 
 /* Cute highlight color */
 ::selection {
-  background: rgba(var(--accent-b), 0.35);
+  background: rgba(var(--accent-a), 0.28);
   color: #ffffff;
 }
 
@@ -80,6 +80,28 @@ body {
   animation: floatY 11s ease-in-out infinite;
 }
 
+@keyframes carouselSlideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(32px) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes carouselSlideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-32px) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -89,6 +111,11 @@ body {
   .float-1,
   .float-2,
   .float-3 {
+    animation: none;
+  }
+
+  .animate-\[carouselSlideInRight_320ms_ease\],
+  .animate-\[carouselSlideInLeft_320ms_ease\] {
     animation: none;
   }
 }
@@ -149,9 +176,9 @@ details[open] > summary svg {
   padding: 32px 18px;
   position: relative;
   background:
-    radial-gradient(900px 500px at 70% 35%, rgba(255, 70, 170, 0.18), transparent 60%),
-    radial-gradient(900px 500px at 20% 70%, rgba(80, 170, 255, 0.14), transparent 55%),
-    linear-gradient(180deg, #06060b 0%, #05050a 45%, #000 100%);
+    radial-gradient(900px 500px at 70% 35%, rgba(255, 62, 181, 0.16), transparent 60%),
+    radial-gradient(900px 500px at 20% 70%, rgba(216, 140, 255, 0.12), transparent 55%),
+    linear-gradient(180deg, #06060A 0%, #11101A 45%, #06060A 100%);
   overflow:hidden;
 }
 
@@ -210,7 +237,7 @@ details[open] > summary svg {
   justify-content:space-between;
   padding: 14px 16px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
-  background: linear-gradient(90deg, rgba(255,70,170,0.18), rgba(80,170,255,0.12));
+  background: linear-gradient(90deg, rgba(40,22,54,0.95), rgba(17,16,26,0.96));
 }
 
 .intro-badge{

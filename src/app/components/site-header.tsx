@@ -60,14 +60,15 @@ function NavGroup({
 
 export function SiteHeader({ backToPortfolio }: { backToPortfolio?: boolean }) {
   const mainItems: NavItem[] = [
+    { label: "About", href: "/portfolio#about" },
     { label: "Projects", href: "/portfolio#projects" },
     { label: "Skills", href: "/portfolio#skills" },
     { label: "Education", href: "/portfolio#education" },
   ];
 
   const designItems: NavItem[] = [
-    { label: "UI/UX", href: "/design#uiux" },
-    { label: "3D Art", href: "/design#art" },
+    { label: "UI/UX", href: "/portfolio#uiux" },
+    { label: "3D Art", href: "/portfolio#art" },
   ];
 
   return (

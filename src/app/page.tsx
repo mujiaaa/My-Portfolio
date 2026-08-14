@@ -177,7 +177,7 @@ export default function Home() {
           <div className="pxi-info">
             <div className="pxi-track">
               <div className="pxi-track-title">Mujia Chen — Portfolio</div>
-              <div className="pxi-track-sub">ui/ux designs • graphics • gameplay systems</div>
+              <div className="pxi-track-sub">gameplay design • systems design • ui/ux designs </div>
             </div>
 
             <div className="pxi-progressRow">
@@ -199,7 +199,7 @@ export default function Home() {
               <span className="pxi-startIcon" aria-hidden>
                 ▶
               </span>
-              START
+              Enter Portfolio
             </button>
 
             <div className="pxi-tray" aria-hidden>

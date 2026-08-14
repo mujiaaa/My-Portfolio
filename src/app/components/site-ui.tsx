@@ -3,7 +3,7 @@ import { Link as LinkIcon } from "lucide-react";
 
 export function Tag({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-200">
+    <span className="inline-flex items-center rounded-full border-2 border-[#FF3EB5]/28 bg-[#11101A] px-3 py-1 text-xs text-[#F7F3F8] shadow-[0_0_0_1px_rgba(255,62,181,0.10),0_0_14px_rgba(255,62,181,0.10)]">
       {children}
     </span>
   );
@@ -86,7 +86,7 @@ export function FancyLink({ label, href }: { label: string; href: string }) {
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-zinc-200 hover:bg-white/10 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/60"
+      className="inline-flex items-center gap-2 rounded-xl border-2 border-[#D88CFF]/28 bg-[#11101A] px-3 py-2 text-sm text-[#F7F3F8] hover:border-[#FF3EB5]/70 hover:bg-[#281636] hover:shadow-[0_0_24px_rgba(255,62,181,0.24)] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF3EB5]/55"
     >
       <LinkIcon size={14} />
       {label}
@@ -103,18 +103,20 @@ export function GlowCard({
   gradient: string;
   pixel?: boolean;
 }) {
+  void gradient;
   const shape = pixel ? "pixel-corners" : "rounded-3xl";
 
   return (
-    <div className={`group relative ${shape} p-[1px] bg-gradient-to-br ${gradient}`}>
-      {/* glow */}
+    <div
+      className={`group relative ${shape} border-2 border-[#FF3EB5]/45 bg-[#281636]/34 p-[3px] shadow-[0_0_0_1px_rgba(255,62,181,0.15),0_0_22px_rgba(255,62,181,0.12)]`}
+    >
       <div
         aria-hidden
-        className={`pointer-events-none absolute -inset-6 ${shape} bg-gradient-to-br ${gradient} opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100 -z-10`}
+        className="pointer-events-none absolute -inset-x-6 -bottom-4 h-3 rounded-b-[inherit] bg-[#FF3EB5] blur-lg opacity-85 transition-opacity duration-500 group-hover:opacity-100 -z-10"
       />
 
       <div
-        className={`relative ${shape} border border-white/10 bg-zinc-950/60 backdrop-blur p-6 sm:p-7`}
+        className={`relative ${shape} border-2 border-[#D88CFF]/30 bg-[#11101A] backdrop-blur p-6 sm:p-7 shadow-[0_22px_70px_rgba(0,0,0,0.72)]`}
       >
         {children}
       </div>
@@ -140,7 +142,7 @@ export function Section({
         <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
           {title}
         </h2>
-        <div className="ml-auto hidden sm:block h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="ml-auto hidden sm:block h-[3px] flex-1 rounded-full bg-[#FF3EB5]/40 shadow-[0_0_12px_rgba(255,62,181,0.45)]" />
       </div>
       {children}
     </section>
